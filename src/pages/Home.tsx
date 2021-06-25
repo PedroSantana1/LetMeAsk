@@ -44,6 +44,11 @@ export function Home() {
       return;
     }
 
+    if(roomRef.val().authorId === user?.id) {
+      history.push(`/admin/rooms/${roomCode}`);
+      return;
+    }
+
     history.push(`/rooms/${roomCode}`);
   }
 
