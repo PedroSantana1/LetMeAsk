@@ -38,6 +38,11 @@ export function useRoom(roomId: string) {
   
         roomRef.on('value', room => {
           const databaseRoom = room.val();
+
+          if(room.val() === null){
+              return;
+          }
+
           const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
   
           const parsedQuestions = Object.entries(firebaseQuestions).map(([key, value]) => {
@@ -51,9 +56,11 @@ export function useRoom(roomId: string) {
                 likeId: Object.entries(value.likes ?? {}).find(([key, like]) => like.authorId === user?.id)?.[0]
               }
           })
+
+          const questionsSorted = parsedQuestions.sort((a, b) => a.likeCount - b.likeCount)
   
           setTitle(databaseRoom.title);
-          setQuestions(parsedQuestions);
+          setQuestions(questionsSorted);
         })
 
         return () => {

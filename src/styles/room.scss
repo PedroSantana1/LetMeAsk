@@ -22,6 +22,20 @@
           height: 40px;
         }
       }
+
+      &.dark {
+        .room-code {
+          background-color: #171923;
+
+          span {
+            color: #fff;
+          }
+        }
+
+        .button {
+          background-color: #171923;
+        }
+      }
     }
   }
 
@@ -33,11 +47,16 @@
       margin: 32px 0 24px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
 
       h1 {
         font-family: "Poppins", sans-serif;
         font-size: 24px;
         color: #29292e;
+
+        &.dark {
+          color: #fff;
+        }
       }
 
       span {
@@ -61,6 +80,10 @@
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         resize: vertical;
         min-height: 130px;
+        &.dark{
+          background: #171923;
+          color: #fff;
+        }
       }
 
       .form-footer {
@@ -84,6 +107,10 @@
             color: #29292e;
             font-weight: 500;
             font-size: 14px;
+
+            &.dark {
+              color: #fff;
+            }
           }
         }
 
@@ -107,6 +134,27 @@
 
     .question-list {
       margin-top: 32px;
+
+      &.dark{
+        .question {
+          background: #171923;
+
+          &.answered {
+            background: #223;
+          }
+
+          p {
+            color: #fff;
+          }
+
+          .user-info {
+            span {
+              color: #fff;
+            }
+          }
+        }
+      }
     }
+    
   }
 }
